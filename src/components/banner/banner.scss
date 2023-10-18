@@ -1,0 +1,37 @@
+.banner {
+    &__block {
+        background-image: url('../../source/img/ekskavator.jpeg');
+        width: 100%;
+        height: auto;
+        min-height: 50vh;
+        font-size: 2vh;
+        background-repeat: no-repeat;
+        background-size: cover; 
+        color: #fff; 
+        background-blend-mode: overlay;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 5vh;
+        border-radius: 30px;
+        h1 {
+            margin-bottom: 4vh;
+            color: #fff;
+        }
+        &-btn {
+            padding: 20px;
+            margin: 2vh;
+            width: 30vh;
+            background-color: #ADC6FF;
+            &:hover {
+                cursor: pointer;
+                background-color: #CDE5FF;
+            }
+        }
+        &-inner {
+            max-width: 800px;
+        }
+    }
+}

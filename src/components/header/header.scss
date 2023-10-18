@@ -1,0 +1,26 @@
+.app {
+    &__header {
+        width: 100%;
+    }
+    &__nav {
+        display: flex;
+        justify-content: center;
+        &-link {
+            display: flex;
+            justify-content: space-around;
+            max-width: 500px;
+            li {
+                padding: 20px 2vh;
+            }
+            a {
+                padding: 1.5vh;
+                border-radius: 40px;
+                font-size: 18px;
+                &:hover {
+                    background-color: #DBE2F9;
+                };
+            }
+        }
+    }
+}
+

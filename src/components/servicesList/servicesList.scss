@@ -1,0 +1,39 @@
+.servicesList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: -2px;
+    div {
+        margin: 2px;
+        background-color: #EFEDF1;
+        padding: 15px; 
+        text-align: left;
+        &:hover {
+            background-color: #CDE5FF;
+            cursor: pointer;
+        }
+    }
+    &__price {
+        color: #004494;
+        font-weight: bold;
+        padding: 10px 0;
+    }
+    
+}
+
+@media screen and (max-width: 1400px) {
+    .servicesList {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .servicesList {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .servicesList {
+        grid-template-columns: 1fr;
+    }
+}
