@@ -1,13 +1,19 @@
 .list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin: -15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: -5px;
     margin-top: 0px;
 }
 
 h2 {
     text-align: left;
     font-size: 40px;
+}
+
+@media screen and (max-width: 1600px) {
+    .list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 
 @media screen and (max-width: 1400px) {

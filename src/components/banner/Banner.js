@@ -7,6 +7,7 @@ function Banner() {
                 <h1>Оренда спецтехніки і надання послуг у Вінниці та області</h1>
                 <button className='banner__block-btn'>Обрати техніку</button>
                 <button className='banner__block-btn'>Обрати послугу</button>
+                <button className='banner__block-btn'>Замовити дзвінок</button>
             </div>
         </div>
     )

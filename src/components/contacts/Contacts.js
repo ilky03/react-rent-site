@@ -8,7 +8,7 @@ import map from '../../source/icons/map.svg';
 function Contacts() {
     return (
         <div className='contacts' id='contacts'>
-            <h2>Контакти</h2>
+            <h3>Контакти</h3>
             <p><img src={telegram} alt='telegram' />tg.me/randomlink</p>
             <p><img src={mail} alt='mail' />somemail@gmail.com</p>
             <p><img src={phone} alt='phone' />+380-99-444-2333</p>

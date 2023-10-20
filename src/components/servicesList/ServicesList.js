@@ -4,6 +4,8 @@ function ServicesList() {
     return (
         <div id='services'>
             <h2>Послуги</h2>
+            <p className='description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, libero totam ullam officia incidunt repellat minima maiores iusto vel pariatur, debitis odio laborum facilis autem. Velit reiciendis totam qui iste.
+            Animi temporibus inventore vel enim. Earum reiciendis nemo explicabo ex. Assumenda inventore voluptatem, nesciunt doloribus, placeat necessitatibus autem officiis quas accusantium debitis amet perspiciatis, incidunt doloremque? Temporibus dolorum odio fuga!</p>
             <div className='servicesList'>
                 <div>
                     <h4>Доставка щебня</h4>
