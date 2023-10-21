@@ -3,7 +3,7 @@
         background-image: url('../../source/img/ekskavator.jpeg');
         width: 100%;
         height: auto;
-        min-height: 80vh;
+        min-height: 100vh;
         font-size: 2vh;
         background-repeat: no-repeat;
         background-size: cover; 
@@ -15,24 +15,42 @@
         align-items: center;
         flex-wrap: wrap;
         padding: 15px;
-        border-radius: 30px;
+        &-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+        }
         h1 {
             margin-bottom: 15px;
+            margin-top: 80px;
             color: #fff;
         }
         &-btn {
-            padding: 20px;
-            margin: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            font-size: 18px;
+            height: 6vh;
             width: 30vh;
+            padding: 1vh;
+            margin: 20px 20px;
             font-weight: bold;
-            background-color: #ADC6FF;
+            background-color: #DCC3A1;
+            color: #000;
             &:hover {
-                cursor: pointer;
-                background-color: #CDE5FF;
+                background-color: #442B00;
+                color: #C9B08D;
             }
         }
-        &-inner {
-            // max-width: 800px;
-        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .banner__block-btn {
+        height: 9vh;
+        width: 80%;
     }
 }

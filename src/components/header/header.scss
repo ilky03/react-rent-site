@@ -4,23 +4,90 @@
     }
     &__nav {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        background-color: #fff;
+        width: 100%;
+        -webkit-box-shadow: 0px 5px 8px -3px rgba(0,0,0,0.28);
+        -moz-box-shadow: 0px 5px 8px -3px rgba(0,0,0,0.28);
+        box-shadow: 0px 5px 8px -3px rgba(0,0,0,0.28);
         &-link {
             display: flex;
             justify-content: space-around;
-            max-width: 500px;
             li {
                 padding: 15px 5px;
             }
             a {
                 padding: 1.5vh;
-                border-radius: 40px;
+                border-radius: 20px;
                 font-size: 18px;
                 &:hover {
-                    background-color: #DBE2F9;
+                    background-color: rgba(242,168,29, .5);
                 };
+            }
+        }
+        &-logo {
+            display: block;
+        }
+        &-smallLogo {
+            display: none;
+        }
+        &-burger {
+            display: none;
+            width: 50px;
+            padding: 10px;
+            border-radius: 100px;
+            span {
+                display: block;
+                background-color: #000;
+                border-radius: 2px;
+                height: 2px;
+                width: 100%;
+                margin: 4px 0;
+            }
+            &:hover {
+                background-color: rgba(242,168,29, .5);
+                cursor: pointer;
+            }
+        }
+        &-call {
+            display: none;
+        }
+        &-btn {
+            height: auto;
+            width: 15vw;
+            max-width: 200px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .app {
+        &__nav {
+            ul {
+                display: none;
+            }
+            &-burger {
+                display: block;
+            }
+            &-logo {
+                display: none;
+            }
+            &-smallLogo {
+                display: block;
+            }
+            &-call {
+                display: block;
+                margin: auto;
+            }
+            &-text {
+                display: none;
             }
         }
     }
 }
+
+
 

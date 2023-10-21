@@ -5,9 +5,8 @@ function Banner() {
         <div className='banner__block'>
             <div className='banner__block-inner'>
                 <h1>Оренда спецтехніки і надання послуг у Вінниці та області</h1>
-                <button className='banner__block-btn'>Обрати техніку</button>
-                <button className='banner__block-btn'>Обрати послугу</button>
-                <button className='banner__block-btn'>Замовити дзвінок</button>
+                <a href='#machinery' className='banner__block-btn'>Обрати техніку</a>
+                <a href='#services' className='banner__block-btn'>Обрати послугу</a>
             </div>
         </div>
     )
