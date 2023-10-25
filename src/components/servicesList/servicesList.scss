@@ -11,8 +11,10 @@
 }
 
 .servicesList {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     div {
-        margin: 10px 0;
+        margin: 10px;
         background-color: #f8f8f8;
         padding: 20px; 
         text-align: left;

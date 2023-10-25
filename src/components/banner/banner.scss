@@ -1,6 +1,6 @@
 .banner {
     &__block {
-        background-image: url('../../source/img/ekskavator.jpeg');
+        background-image: url('../../source/img/ekskavator_bg.jpg');
         width: 100%;
         height: auto;
         min-height: 100vh;
@@ -46,6 +46,13 @@
             }
         }
     }
+}
+
+.arrow {
+    width: auto;
+    height: 50px;
+    position: absolute;
+    bottom: 20px;
 }
 
 @media screen and (max-width: 700px) {

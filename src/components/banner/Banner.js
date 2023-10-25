@@ -1,4 +1,5 @@
 import './banner.scss';
+import arrow from '../../source/icons/arrow.svg';
 
 function Banner() {
     return (
@@ -8,8 +9,10 @@ function Banner() {
                 <a href='#machinery' className='banner__block-btn'>Обрати техніку</a>
                 <a href='#services' className='banner__block-btn'>Обрати послугу</a>
             </div>
+            <img src={arrow} alt='arrow' className='arrow'/>
         </div>
     )
 }
 
-export default Banner;
+export default Banner; 
+

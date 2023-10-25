@@ -6,7 +6,7 @@ import logo from '../../source/img/logo.png';
 import smallLogo from '../../source/img/logo_small.png';
 import phone from '../../source/icons/phone_call.svg';
 
-function Header() {
+function Header({handleClick}) {
     return (
         <header className='app__header'>
             <nav className='app__nav'>
@@ -22,7 +22,17 @@ function Header() {
                     <span></span>
                     <span></span>
                 </div>
-                <button className='app__nav-btn'><img src={phone} alt='phone' className='app__nav-call'/><p className='app__nav-text'>Зв'язатися з нами</p></button>
+                <button 
+                    className='app__nav-btn'
+                    onClick={handleClick}>
+                        <img src={phone} 
+                            alt='phone' 
+                            className='app__nav-call'/>
+                        <p 
+                            className='app__nav-text'>
+                                Зв'язатися з нами
+                        </p>
+                </button>
             </nav>
             <Banner />
         </header>

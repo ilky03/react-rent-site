@@ -1,16 +1,13 @@
-import ekskavator from '../../source/img/ekskavator.jpg';
-
 import './card.scss';
 
-function Card() {
+function Card({description, name, photoUrl, price, handleClick}) {
     return (
         <div className='card'>
-            <img src={ekskavator} alt='ekskavator' width='300px'/>
-            <h3>Екскаватор</h3>
-            <p className='card__price'>від 2100 грн/година</p>
-            <p className='card__descr'>LoremInciionem, deleniti recusandae. Iure, necessitatibus nesciunt! Nemo, nam ipsa.</p>
-            <button className='card__btn card__btn-order'>Замовити</button>
-            {/* <button className='card__btn card__btn-more'>Детальніше</button> */}
+            <img src={photoUrl} alt='name' width='300px'/>
+            <h3>{name}</h3>
+            <p className='card__price'>{price}</p>
+            <p className='card__descr'>{description}</p>
+            <button className='card__btn card__btn-order' onClick={() => handleClick('card', name)}>Замовити</button>
         </div>
     )
 }

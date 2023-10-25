@@ -3,7 +3,8 @@
     max-width: 500px;
     border-radius: 20px;
     margin: 5px;
-    padding-bottom: 15px;
+    padding-bottom: 120px;
+    position: relative; 
     h3 {
         font-size: 30px;
         padding: 10px 0;
@@ -11,8 +12,8 @@
     img {
         border-radius: 20px;
         width: 100%;
-        height: auto;
-        object-fit: contain;
+        height: 35vh;
+        object-fit: cover;
     }
     &__descr {
         margin-top: 15px;
@@ -26,5 +27,8 @@
     }
     &__btn {
         width: 80%;
+        position: absolute; /* Важливо: встановлюємо абсолютний позиціонування */
+        bottom: 10px; /* Відступ внизу */
+        left: 10%; /* Відступ зліва (залежно від ваших потреб) */
     }
 }
