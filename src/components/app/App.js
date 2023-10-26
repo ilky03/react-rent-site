@@ -27,7 +27,7 @@ function App() {
 
   return (
     <>
-      <Header handleClick={onChangeFormStatus}/>
+      <Header handleClick={onChangeFormParam}/>
       <main>
         <section>
           <CardList handleClick={onChangeFormParam}/>
@@ -39,7 +39,7 @@ function App() {
 
       <Form 
         isFormOpen={isFormOpen} 
-        handleClick={onChangeFormStatus}
+        handleClick={onChangeFormParam}
         type={formType}
         choosedValue={formInputChoose} 
       />

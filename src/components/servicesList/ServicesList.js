@@ -21,21 +21,24 @@ function ServicesList({handleClick}) {
 function View({handleClick}) {
     const [data, setData] = useState([]);
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await fetch('https://rent-site-a6109-default-rtdb.firebaseio.com/services.json');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+        if (data.length === 0) {
+            async function fetchData() {
+                try {
+                    const response = await fetch('https://rent-site-a6109-default-rtdb.firebaseio.com/services.json');
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const jsonData = await response.json();
+                    setData(Object.values(jsonData));
+                } catch (error) {
+                    console.error('Error fetching data:', error);
                 }
-                const jsonData = await response.json();
-                setData(Object.values(jsonData));
-            } catch (error) {
-                console.error('Error fetching data:', error);
             }
+            fetchData();
         }
 
-        fetchData();
-    }, []);
+        
+    }, [data]);
 
     return (
         <>

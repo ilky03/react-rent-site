@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Banner from '../banner/Banner';
 
 import './header.scss';
@@ -7,24 +8,32 @@ import smallLogo from '../../source/img/logo_small.png';
 import phone from '../../source/icons/phone_call.svg';
 
 function Header({handleClick}) {
+    const [burgerNavStatus, setBurgerNavStatus] = useState(false);
+    const toggleBurgerNav = () => {
+        setBurgerNavStatus(!burgerNavStatus);
+    }
     return (
-        <header className='app__header'>
+        <header className='app__header' id='main'>
             <nav className='app__nav'>
-            <img src={logo} className='app__nav-logo' height='80px'alt='digger' />
-            <img src={smallLogo} className='app__nav-smallLogo' height='80px'alt='digger' />
+                <a href='#main' className='app__nav-logo'>
+                    <img src={logo} height='80px'alt='digger' />
+                </a>
+                <a href='#main' className='app__nav-smallLogo'>
+                    <img src={smallLogo} width='80px'alt='digger' />
+                </a>
                 <ul className='app__nav-link'>
                     <li><a href='#machinery'>Спецтехніка</a></li>
                     <li><a href='#services'>Послуги</a></li>
                     <li><a href='#contacts'>Контакти</a></li>
                 </ul>
-                <div className='app__nav-burger'>
+                <div className='app__nav-burger' onClick={toggleBurgerNav}>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
                 <button 
                     className='app__nav-btn'
-                    onClick={handleClick}>
+                    onClick={() => handleClick('call')}>
                         <img src={phone} 
                             alt='phone' 
                             className='app__nav-call'/>
@@ -33,6 +42,15 @@ function Header({handleClick}) {
                                 Зв'язатися з нами
                         </p>
                 </button>
+                <ul 
+                    className='app__nav-link burger-list' 
+                    onClick={toggleBurgerNav}
+                    style={{display: burgerNavStatus ? 'flex' : 'none'}}
+                >
+                    <li><a href='#machinery'>Спецтехніка</a></li>
+                    <li><a href='#services'>Послуги</a></li>
+                    <li><a href='#contacts'>Контакти</a></li>
+                </ul>
             </nav>
             <Banner />
         </header>
