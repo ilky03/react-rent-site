@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 import './form.scss';
 
 function Form({isFormOpen, handleClick, type, choosedValue}) {
+    
     const [data, setData] = useState([]);
+    
     useEffect(() => {
         if (data.length === 0) {
             async function fetchData() {
@@ -24,6 +26,26 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
         
     }, [data]);
 
+    useEffect(() => {
+        if (isFormOpen) {
+            document.body.classList.add('body-no-scroll');
+        } else {
+            document.body.classList.remove('body-no-scroll');
+        }
+    
+        return () => {
+            document.body.classList.remove('body-no-scroll');
+        };
+    }, [isFormOpen]);
+    
+
+    const handleClickOutside = (e) => {
+        const formElement = document.querySelector('.form');
+        if (formElement && !formElement.contains(e.target)) {
+            handleClick(null, null);
+        }
+    }
+
     const formDisplay = {'display': isFormOpen ? 'flex' : 'none'}; 
     let orderType, text;
     console.log(choosedValue)
@@ -38,8 +60,8 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
         text = 'Коментар'; 
     }
     return (
-        <div className='form__block' style={formDisplay}>
-            <form onSubmit={e => e.preventDefault()}>
+        <div className='form__block' style={formDisplay} onClick={(e) => handleClickOutside(e)}>
+            <form onSubmit={e => e.preventDefault()} className='form'>
                 <h3>Замовлення {orderType}</h3>
                 <label htmlFor='name'>Ваше ім'я</label>
                 <input name='name' placeholder='Уведіть ім&#39;я' required />
