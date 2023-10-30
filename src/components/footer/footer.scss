@@ -6,4 +6,11 @@
     align-items: center;
     background-color: #EFEDF1;
     padding: 15px;
+    input[type='submit'] {
+        &:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+            cursor: not-allowed;
+        }
+    }
 }

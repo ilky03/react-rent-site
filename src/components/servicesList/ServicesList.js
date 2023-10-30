@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import Service from '../service/Service';
+import Spinner from '../spinner/Spinner';
 
 import './servicesList.scss';
 
@@ -20,8 +21,11 @@ function ServicesList({handleClick}) {
 
 function View({handleClick}) {
     const [data, setData] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
     useEffect(() => {
         if (data.length === 0) {
+            setIsLoading(true);
             async function fetchData() {
                 try {
                     const response = await fetch('https://rent-site-a6109-default-rtdb.firebaseio.com/services.json');
@@ -32,6 +36,8 @@ function View({handleClick}) {
                     setData(Object.values(jsonData));
                 } catch (error) {
                     console.error('Error fetching data:', error);
+                } finally {
+                    setIsLoading(false);
                 }
             }
             fetchData();
@@ -42,15 +48,18 @@ function View({handleClick}) {
 
     return (
         <>
-            {data.map((item, key) => (
-                <Service
-                    key={key}
-                    name={item.name}
-                    description={item.description}
-                    price={item.price}
-                />
-            ))}
-        </>
+            {isLoading ? <Spinner /> : 
+            <>
+                {data.map((item, key) => (
+                    <Service
+                        key={key}
+                        name={item.name}
+                        description={item.description}
+                        price={item.price}
+                    />
+                ))}
+            </>}
+        </> 
     );
 }
 

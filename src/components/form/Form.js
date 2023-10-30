@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import './form.scss';
+import Spinner from '../spinner/Spinner';
 
 function Form({isFormOpen, handleClick, type, choosedValue}) {
     
     const [data, setData] = useState([]);
-    
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const formRef = useRef(null);
+
     useEffect(() => {
         if (data.length === 0) {
             async function fetchData() {
@@ -46,6 +50,21 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
         }
     }
 
+    const postData = async (e) => {
+        setLoading(true);
+        e.preventDefault()
+        let formData = new FormData(formRef.current);
+        let json = JSON.stringify(Object.fromEntries(formData.entries()));
+        let res = await fetch('https://rent-site-a6109-default-rtdb.firebaseio.com/forms.json', {
+            method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: json
+            });
+        return await res.json(); 
+    }
+
     const formDisplay = {'display': isFormOpen ? 'flex' : 'none'}; 
     let orderType, text;
     console.log(choosedValue)
@@ -59,24 +78,58 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
         orderType = 'зворотнього дзвінку';
         text = 'Коментар'; 
     }
-    return (
-        <div className='form__block' style={formDisplay} onClick={(e) => handleClickOutside(e)}>
-            <form onSubmit={e => e.preventDefault()} className='form'>
+
+    const SuccessInfo = () => {
+        return (
+            <div className='success-info'>
+                <h3>ДЯКУЄМО, заявка успішно надіслана!</h3>
+                <p>Ми зв'яжемося з Вами найближчим часом</p>
+                <button 
+                    className='success-info__btn' 
+                    onClick={() => {
+                        setSuccess(false); 
+                        handleClick(null, null)
+                    }}> 
+                    Повернутися на сайт
+                </button>
+            </div>
+        )
+    }
+
+    const FormFilling = () => {
+        return (
+            <form onSubmit={e => handleSubmit(e)} className='form' ref={formRef}>
                 <h3>Замовлення {orderType}</h3>
                 <label htmlFor='name'>Ваше ім'я</label>
                 <input name='name' placeholder='Уведіть ім&#39;я' required />
                 <label htmlFor='number'>Номер телефону</label>
-                <input name='number' type='number' placeholder='Уведіть номер телефону' required />
+                <input name='number' placeholder='Уведіть номер телефону' required />
                 <label htmlFor='text'>{text}</label>
                 {type === 'services' ? 
-                    (<select name='service'>
-                        {data.map((item) => <option>{item.name}</option>)}
+                    (<select name='text' required>
+                        <option selected value="" disabled>Оберіть послугу із списку</option>
+                        {data.map((item) => <option key={item.name}>{item.name}</option>)}
                     </select>) :
-                    <input name='text' placeholder={text} defaultValue={choosedValue} />
+                    <input name='text' placeholder={text} defaultValue={choosedValue ? 'Оренда спецтехніки. ' + choosedValue : choosedValue} />
                 }
-                <input type='submit' />
+                <input type='submit' value='Надіслати' />
                 <button onClick={() => handleClick(null, null)}>Скасувати</button>
-            </form>        
+            </form>
+        )
+    }
+
+    const handleSubmit = (e) => {
+        postData(e).then(() => {
+            setLoading(false); setSuccess(true)
+        })
+    }
+
+    return (
+        <div className='form__block' style={formDisplay} onClick={(e) => handleClickOutside(e)}>
+            {loading ? <Spinner /> :
+                success ? <SuccessInfo /> : 
+                    <FormFilling />
+            }      
         </div>
     )
 }
