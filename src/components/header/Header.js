@@ -3,8 +3,7 @@ import Banner from '../banner/Banner';
 
 import './header.scss';
 
-import logo from '../../source/img/logo.png';
-import smallLogo from '../../source/img/logo_small.png';
+import logo from '../../source/img/logo.jpg'
 import phone from '../../source/icons/phone_call.svg';
 
 function Header({handleClick}) {
@@ -16,10 +15,7 @@ function Header({handleClick}) {
         <header className='app__header' id='main'>
             <nav className='app__nav'>
                 <a href='#main' className='app__nav-logo'>
-                    <img src={logo} height='80px'alt='digger' />
-                </a>
-                <a href='#main' className='app__nav-smallLogo'>
-                    <img src={smallLogo} width='80px'alt='digger' />
+                    <img src={logo} alt='digger' />
                 </a>
                 <ul className='app__nav-link'>
                     <li><a href='#machinery'>Спецтехніка</a></li>
@@ -52,7 +48,7 @@ function Header({handleClick}) {
                     <li><a href='#contacts'>Контакти</a></li>
                 </ul>
             </nav>
-            <Banner />
+            <Banner handleClick={handleClick}/>
         </header>
     )
 }

@@ -98,19 +98,43 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
 
     const FormFilling = () => {
         return (
+            type === 'partner' ?
             <form onSubmit={e => handleSubmit(e)} className='form' ref={formRef}>
-                <h3>Замовлення {orderType}</h3>
+                <h3 style={{marginBottom: '30px'}}>Форма для співпраці</h3>
                 <label htmlFor='name'>Ваше ім'я</label>
                 <input name='name' placeholder='Уведіть ім&#39;я' required />
                 <label htmlFor='number'>Номер телефону</label>
                 <input name='number' placeholder='Уведіть номер телефону' required />
+                <label htmlFor='district'>Зона надання послуг/спецтехніки</label>
+                <select name='district' required>
+                    <option selected value="" disabled>Оберіть район із списку</option>
+                    <option>Вінницький район</option>
+                    <option>Гайсинський район</option>
+                    <option>Жмеринський район</option>
+                    <option>Могилів-Подільський район</option>
+                    <option>Тульчинський район</option>
+                    <option>Хмільницький район</option>
+                </select>
+                <label htmlFor='offers'>Вид послуг/спецтехніки</label>
+                <textarea name='offers' placeholder='Уведіть свої пропозиції' />
+                <input type='submit' value='Надіслати' />
+                <button onClick={() => handleClick(null, null)}>Скасувати</button>
+            </form> :
+            <form onSubmit={e => handleSubmit(e)} className='form' ref={formRef}>
+                <h3 style={{marginBottom: '30px'}}>Замовлення {orderType}</h3>
+                <label htmlFor='name'>Ваше ім'я</label>
+                <input name='name' placeholder='Уведіть ім&#39;я' required />
+                <label htmlFor='number'>Номер телефону</label>
+                <input name='number' placeholder='Уведіть номер телефону' required />
+                <label htmlFor='district'>Назва населеного пункту</label>
+                <input name='district' placeholder='Уведіть назву пункту' required />
                 <label htmlFor='text'>{text}</label>
                 {type === 'services' ? 
                     (<select name='text' required>
                         <option selected value="" disabled>Оберіть послугу із списку</option>
                         {data.map((item) => <option key={item.name}>{item.name}</option>)}
                     </select>) :
-                    <input name='text' placeholder={text} defaultValue={choosedValue ? 'Оренда спецтехніки. ' + choosedValue : choosedValue} />
+                    <textarea name='text' placeholder={text} defaultValue={choosedValue ? 'Оренда спецтехніки. ' + choosedValue : choosedValue} />
                 }
                 <input type='submit' value='Надіслати' />
                 <button onClick={() => handleClick(null, null)}>Скасувати</button>
