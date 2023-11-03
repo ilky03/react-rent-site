@@ -4,6 +4,14 @@
     margin-top: 0px;
 }
 
+.machinery {
+    &__description {
+        text-align: justify;
+        margin-bottom: 15px;
+        color: #8d8d8d;
+    }
+}
+
 h2 {
     text-align: left;
     font-size: 40px;

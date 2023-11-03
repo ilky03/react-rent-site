@@ -10,8 +10,7 @@ function ServicesList({handleClick}) {
     return (
         <div id='services'>
             <h2>Послуги</h2>
-            <p className='services__description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, libero totam ullam officia incidunt repellat minima maiores iusto vel pariatur, debitis odio laborum facilis autem. Velit reiciendis totam qui iste.
-            Animi temporibus inventore vel enim. Earum reiciendis nemo explicabo ex. Assumenda inventore voluptatem, nesciunt doloribus, placeat necessitatibus autem officiis quas accusantium debitis amet perspiciatis, incidunt doloremque? Temporibus dolorum odio fuga!</p>
+            <p className='services__description'>Ми пропонуємо різноманітні послуги, спрямовані на забезпечення вашого комфорту та виконання різноманітних завдань. Наша мета - зробити ваше життя легшим та забезпечити вам доступ до надійних та професійних послуг. Щоб замовити послугу, ознайомтеся з наданим списком і за допомогою кнопки внизу "Замовити послугу" - зробіть замовлення.</p>
             <div className='servicesList'>
                 <View />
             </div>
