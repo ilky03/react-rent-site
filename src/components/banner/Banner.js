@@ -8,7 +8,7 @@ function Banner({ handleClick }) {
                 <h1>Оренда спецтехніки і надання послуг у Вінниці та області</h1>
                 <a href='#machinery' className='banner__block-btn'>Обрати техніку</a>
                 <a href='#services' className='banner__block-btn'>Обрати послугу</a>
-                <button className='banner__block-btn' onClick={() => handleClick('partner')}>Стати виконавцем</button>
+                <button className='banner__block-btn' onClick={() => handleClick('partner')}>Партнерство</button>
             </div>
             <img src={arrow} alt='arrow' className='arrow'/>
         </div>

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Service from '../service/Service';
 import Spinner from '../spinner/Spinner';
 
+import useServices from '../../services/Services';
 import './servicesList.scss';
 
 function ServicesList({handleClick}) {
@@ -21,30 +22,11 @@ function ServicesList({handleClick}) {
 
 function View({handleClick}) {
     const [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const {fetchData, isLoading} = useServices();
 
     useEffect(() => {
-        if (data.length === 0) {
-            setIsLoading(true);
-            async function fetchData() {
-                try {
-                    const response = await fetch('https://rent-site-a6109-default-rtdb.firebaseio.com/services.json');
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    const jsonData = await response.json();
-                    setData(Object.values(jsonData));
-                } catch (error) {
-                    console.error('Error fetching data:', error);
-                } finally {
-                    setIsLoading(false);
-                }
-            }
-            fetchData();
-        }
-
-        
-    }, [data]);
+      fetchData('services').then(data => setData(data));
+    }, []);
 
     return (
         <>

@@ -126,8 +126,21 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
                 <input name='name' placeholder='Уведіть ім&#39;я' required />
                 <label htmlFor='number'>Номер телефону</label>
                 <input name='number' placeholder='Уведіть номер телефону' required />
-                <label htmlFor='district'>Назва населеного пункту</label>
-                <input name='district' placeholder='Уведіть назву пункту' required />
+                {type === 'services' || choosedValue ?
+                    <>
+                        <label htmlFor='district'>Назва району</label>
+                        <select name='district' required>
+                            <option selected value="" disabled>Оберіть район із списку</option>
+                            <option>Вінницький район</option>
+                            <option>Гайсинський район</option>
+                            <option>Жмеринський район</option>
+                            <option>Могилів-Подільський район</option>
+                            <option>Тульчинський район</option>
+                            <option>Хмільницький район</option>
+                        </select>
+                        <label htmlFor='town'>Назва населеного пункту</label>
+                        <input name='town' placeholder='Уведіть назву пункту' required />
+                    </> : null}
                 <label htmlFor='text'>{text}</label>
                 {type === 'services' ? 
                     (<select name='text' required>

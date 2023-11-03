@@ -28,6 +28,9 @@
         }
         textarea {
             height: 100px;
+            min-width: 280px;
+            max-width: 280px;
+            min-height: 50px;
         }
     }
 }
