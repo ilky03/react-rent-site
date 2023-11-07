@@ -67,7 +67,6 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
 
     const formDisplay = {'display': isFormOpen ? 'flex' : 'none'}; 
     let orderType, text;
-    console.log(choosedValue)
     if (type==='services') {
         orderType = 'послуги';
         text = 'Обрана послуга';
@@ -162,7 +161,7 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
     }
 
     return (
-        <div className='form__block' style={formDisplay} onClick={(e) => handleClickOutside(e)}>
+        <div className='form__block element-animation' style={formDisplay} onClick={(e) => handleClickOutside(e)}>
             {loading ? <Spinner /> :
                 success ? <SuccessInfo /> : 
                     <FormFilling />

@@ -2,7 +2,7 @@ import './card.scss';
 
 function Card({description, name, photoUrl, price, handleClick}) {
     return (
-        <div className='card'>
+        <div className='card element-animation'>
             <img src={photoUrl} alt='name' width='300px'/>
             <h3>{name}</h3>
             <p className='card__price'>{price}</p>

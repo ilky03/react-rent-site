@@ -11,7 +11,9 @@
 }
 
 .servicesList {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     div {
         margin: 10px;
@@ -32,6 +34,7 @@
 
 @media screen and (max-width: 500px) {
     .servicesList {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     }
 }

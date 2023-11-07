@@ -1,5 +1,7 @@
 .list {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     margin-top: 0px;
 }
@@ -19,18 +21,21 @@ h2 {
 
 @media screen and (max-width: 1400px) {
     .list {
+        -ms-grid-columns: 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
 @media screen and (max-width: 1100px) {
     .list {
+        -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media screen and (max-width: 500px) {
     .list {
+        -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
     }
 }

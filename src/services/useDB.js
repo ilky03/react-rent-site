@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function useServices() {
+function useDB() {
     const [isLoading, setIsLoading] = useState(false);
     async function fetchData(fileName) {
         let data;
@@ -22,5 +22,5 @@ function useServices() {
     return {fetchData, isLoading}
 }
 
-export default useServices;
+export default useDB;
 

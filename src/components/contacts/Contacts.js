@@ -9,7 +9,7 @@ function Contacts() {
     return (
         <div className='contacts' id='contacts'>
             <h3>Контакти</h3>
-            <p><img src={telegram} alt='telegram' />tg.me/randomlink</p>
+            <a href='https://t.me/PATRIOT1902'><img src={telegram} alt='telegram' />Telegram</a>
             <p><img src={mail} alt='mail' />somemail@gmail.com</p>
             <p><img src={phone} alt='phone' />+380-99-444-2333</p>
             <p><img src={map} alt='map' />Наше місцеположення</p>
