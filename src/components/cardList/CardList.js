@@ -11,7 +11,7 @@ function CardList({ handleClick, handleLoaded }) {
   const {fetchData, isLoading} = useDB();
 
   useEffect(() => {
-    fetchData('cards').then(data => {setData(data); handleLoaded()});
+    fetchData('cards').then(data => setData(data)).finally(()=>handleLoaded('b'));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

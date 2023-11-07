@@ -20,8 +20,8 @@ function App() {
     setIsFormOpen(!isFormOpen);
   }
 
-  const onChangeContentLoaded = () => { 
-    setIsContentLoaded((isContentLoaded) => !isContentLoaded);
+  const onChangeContentLoaded = (val) => { 
+    setIsContentLoaded(val);
   }
 
   const onChangeFormParam = (type, chooseValue = null) => {

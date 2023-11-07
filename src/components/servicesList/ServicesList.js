@@ -24,7 +24,7 @@ function View({ handleLoaded }) {
     const {fetchData, isLoading} = useDB();
 
     useEffect(() => {
-      fetchData('services').then(data => {setData(data); handleLoaded()});
+      fetchData('services').then(data => setData(data)).finally(()=>handleLoaded('a'));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
