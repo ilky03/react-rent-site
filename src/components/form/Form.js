@@ -101,11 +101,11 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
             <form onSubmit={e => handleSubmit(e)} className='form' ref={formRef}>
                 <h3 style={{marginBottom: '30px'}}>Форма для співпраці</h3>
                 <label htmlFor='name'>Ваше ім'я</label>
-                <input name='name' placeholder='Уведіть ім&#39;я' required />
+                <input id='name' name='name' placeholder='Уведіть ім&#39;я' required />
                 <label htmlFor='number'>Номер телефону</label>
-                <input name='number' placeholder='Уведіть номер телефону' required />
+                <input id='number' name='number' placeholder='Уведіть номер телефону' required />
                 <label htmlFor='district'>Зона надання послуг/спецтехніки</label>
-                <select name='district' required>
+                <select id='district' name='district' required>
                     <option selected value="" disabled>Оберіть район із списку</option>
                     <option>Вінницький район</option>
                     <option>Гайсинський район</option>
@@ -115,20 +115,20 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
                     <option>Хмільницький район</option>
                 </select>
                 <label htmlFor='offers'>Вид послуг/спецтехніки</label>
-                <textarea name='offers' placeholder='Уведіть свої пропозиції' />
+                <textarea id='offers' name='offers' placeholder='Уведіть свої пропозиції' />
                 <input type='submit' value='Надіслати' />
                 <button onClick={() => handleClick(null, null)}>Скасувати</button>
             </form> :
             <form onSubmit={e => handleSubmit(e)} className='form' ref={formRef}>
                 <h3 style={{marginBottom: '30px'}}>Замовлення {orderType}</h3>
                 <label htmlFor='name'>Ваше ім'я</label>
-                <input name='name' placeholder='Уведіть ім&#39;я' required />
+                <input id='name' name='name' placeholder='Уведіть ім&#39;я' required />
                 <label htmlFor='number'>Номер телефону</label>
-                <input name='number' placeholder='Уведіть номер телефону' required />
+                <input id='number' name='number' placeholder='Уведіть номер телефону' required />
                 {type === 'services' || choosedValue ?
                     <>
                         <label htmlFor='district'>Назва району</label>
-                        <select name='district' required>
+                        <select id='district' name='district' required>
                             <option selected value="" disabled>Оберіть район із списку</option>
                             <option>Вінницький район</option>
                             <option>Гайсинський район</option>
@@ -138,15 +138,15 @@ function Form({isFormOpen, handleClick, type, choosedValue}) {
                             <option>Хмільницький район</option>
                         </select>
                         <label htmlFor='town'>Назва населеного пункту</label>
-                        <input name='town' placeholder='Уведіть назву пункту' required />
+                        <input id='town' name='town' placeholder='Уведіть назву пункту' required />
                     </> : null}
                 <label htmlFor='text'>{text}</label>
                 {type === 'services' ? 
-                    (<select name='text' required>
+                    (<select id='text' name='text' required>
                         <option selected value="" disabled>Оберіть послугу із списку</option>
                         {data.map((item) => <option key={item.name}>{item.name}</option>)}
                     </select>) :
-                    <textarea name='text' placeholder={text} defaultValue={choosedValue ? 'Оренда спецтехніки. ' + choosedValue : choosedValue} />
+                    <textarea id='text' name='text' placeholder={text} defaultValue={choosedValue ? 'Оренда спецтехніки. ' + choosedValue : choosedValue} />
                 }
                 <input type='submit' value='Надіслати' />
                 <button onClick={() => handleClick(null, null)}>Скасувати</button>
