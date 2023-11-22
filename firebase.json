@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "build/",
+    "site": "tech-rent-vn",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

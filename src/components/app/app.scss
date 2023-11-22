@@ -18,17 +18,17 @@ section {
     -webkit-transform: translateY(30px);
         -ms-transform: translateY(30px);
             transform: translateY(30px);
-    -webkit-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
 }
 
 .element-animation.element-show {
     opacity: 1;
     visibility:visible;
-    -webkit-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
     -webkit-transform: translateY(0);
         -ms-transform: translateY(0);
             transform: translateY(0);
